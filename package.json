@@ -13,6 +13,7 @@
         "coffee-script": "*"
         , "mocha": "*"
         , "chai": "*"
+        , "n": "*"
     }
     , "scripts": {
     }
