@@ -6,7 +6,7 @@ headliners = []
 
 getHeadliners = ->
   headers = document.getElementsByClassName 'headliners'
-  Array::map.call headers, (header) ->
+  for header in headers
     header.firstElementChild.innerHTML
 
 casper.start 'http://www.bowerypresents.com/see-all-shows/'
