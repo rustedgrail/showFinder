@@ -1,0 +1,25 @@
+{
+    "name": "show_finder"
+    , "author": {
+        "name": "David Newell"
+        , "email": "beta@alumni.rice.edu>"
+        , "url": "https://github.com/rustedgrail"
+    }
+    , "version": "0.0.1"
+    , "description": "A node app to find upcoming shows in the NY area and build a playlist from those shows."
+    , "dependencies": {
+    }
+    , "devDependencies": {
+        "coffee-script": "*"
+        , "mocha": "*"
+        , "chai": "*"
+    }
+    , "scripts": {
+    }
+    , "bin": {
+    }
+    , "repository": {
+        "type": "git"
+        , "url": "https://github.com/rustedgrail/showFinder.git"
+    }
+}
