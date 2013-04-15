@@ -1,6 +1,13 @@
+fs = require 'fs'
+
 casper = require('casper').create()
  # verbose: true
- # logLevel: 'debug'
+ # logLevel: 'debug'o
+
+spotifyBase =
+  host: 'http://ws.spotify.com/search/1/album'
+  port: 80
+  path: 'album?artist.json'
 
 headliners = []
 
@@ -16,4 +23,4 @@ casper.then ->
 
 casper.run ->
   @echo headliners
-  @die "finished", 0
+  @die '', 0
