@@ -1,26 +1,28 @@
-fs = require 'fs'
-
 casper = require('casper').create()
  # verbose: true
  # logLevel: 'debug'o
 
-spotifyBase =
-  host: 'http://ws.spotify.com/search/1/album'
-  port: 80
-  path: 'album?artist.json'
-
 headliners = []
+venues = []
+shows = []
 
-getHeadliners = ->
-  headers = document.getElementsByClassName 'headliners'
-  for header in headers
-    header.firstElementChild.innerHTML
+getShowInformation = ->
+  pageShows = []
+  days = document.getElementsByClassName 'one-event'
+  for day in days
+    headliners = day.getElementsByClassName 'headliners'
+    venue = day.getElementsByClassName 'venue location'
+    for headliner in headliners
+      pageShows.push 
+        headliner: headliner.firstElementChild.innerHTML
+        venue: venue[0].innerHTML
+  pageShows
 
 casper.start 'http://www.bowerypresents.com/see-all-shows/'
 
 casper.then ->
-  headliners = @evaluate getHeadliners
+  shows = @evaluate getShowInformation
 
 casper.run ->
-  @echo headliners
-  @die '', 0
+  @echo JSON.stringify shows
+  @exit 'Finished'

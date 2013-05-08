@@ -8,6 +8,7 @@
     , "version": "0.0.1"
     , "description": "A node app to find upcoming shows in the NY area and build a playlist from those shows."
     , "dependencies": {
+        "xml2js": "*"
     }
     , "devDependencies": {
         "coffee-script": "*"
