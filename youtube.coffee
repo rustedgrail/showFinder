@@ -20,8 +20,10 @@ saveLink = (show, res) ->
   res.on 'end', () ->
     parseString xml, (err, result) ->
       link = result.feed.entry?[0].link[0]['$'].href
-      venue = "Mercury Lounge"
-      client.set "videos::#{show.headliner}::#{show.venue}", link, redis.print
+      if link
+        key = "videos::#{show.headliner}::#{show.venue}::#{show.date}"
+        client.set key, link, redis.print
+        client.pexpire key, new Date(show.date).getTime()
 
 getVideoForArtist = (show) ->
   queryString = "q=#{encodeURI(show.headliner)}&v=2"
